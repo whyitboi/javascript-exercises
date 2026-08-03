@@ -1,23 +1,20 @@
 const removeFromArray = function (array, ...item) {
   let newArray = [];
-  if (Array.isArray(item) === true) {
+  let singleItem = 0;
+  if (item.length < 2) {
+    singleItem = item[0];
     for (let i = 0; i < array.length; i++) {
-      for (let j = 0; j < item.length; j++) {
-        if (array[i] !== item[j]) {
-          newArray.push(array[i]);
-        }
+      if (array[i] !== singleItem) {
+        newArray.push(array[i]); //removes single items
       }
     }
-  } else {
-    for (let i = 0; i < array.length; i++) {
-      if (array[i] !== item) {
-        //1 || array[i] !== item[i]) {
-        newArray.push(array[i]);
-      }
-    }
+  } else if (item.length >= 2) {
+    newArray = array.filter((element) => !item.includes(element)); //removes multiple items of different and same value
   }
   return newArray;
 };
 
 // Do not edit below this line
 module.exports = removeFromArray;
+
+
