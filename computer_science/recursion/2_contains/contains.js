@@ -1,20 +1,13 @@
 const contains = function (object, value) {
-  // let result;
-  if (Object.values(object) === undefined || Object.values(object) === null)
-    return;
+  let result;
 
   for (const item of Object.values(object)) {
-    // if (Object.entries(object).length > 0)
-
-    if (typeof item !== "object") {
-      if (item === value) console.log("found: " + item + " " + value);
-    } else {
+    if (typeof item === "object" && item !== null) {
       contains(item, value);
     }
-    // if (item == value) return false;
-    // contains(item, value);
+    if (item === value) result = true;
   }
-  return;
+  return result;
 };
 
 // Do not edit below this line
