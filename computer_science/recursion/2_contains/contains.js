@@ -5,7 +5,9 @@ const contains = function (object, value) {
     if (typeof item === "object" && item !== null) {
       if (contains(item, value)) return true; //result = true;
     }
-    if (item === value) return true; //result = true;
+
+    // Object.is(a,b) to catch NaN because NaN is not equal to itself
+    if (Object.is(item, value)) return true; //result = true;
   }
   return false;
 };
