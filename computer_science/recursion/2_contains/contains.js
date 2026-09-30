@@ -1,13 +1,13 @@
 const contains = function (object, value) {
-  let result;
+  let result = false;
 
   for (const item of Object.values(object)) {
     if (typeof item === "object" && item !== null) {
-      contains(item, value);
+      if (contains(item, value)) return true; //result = true;
     }
-    if (item === value) result = true;
+    if (item === value) return true; //result = true;
   }
-  return result;
+  return false;
 };
 
 // Do not edit below this line
