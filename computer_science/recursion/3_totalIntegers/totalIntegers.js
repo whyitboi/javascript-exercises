@@ -1,8 +1,10 @@
-const totalIntegers = function (someArray) {
+const totalIntegers = function (someArrayOrObject) {
   let counter = 0;
-  for (const item of someArray) {
-    if (typeof item === "array" && item !== null)
-      if (totalIntegers(item)) counter++;
+  if (typeof someArrayOrObject !== "object") return undefined;
+  //Object.values(someArrayOrObjects) returns an array of the values, making it iteratable
+  for (const item of Object.values(someArrayOrObject)) {
+    if (typeof item === "object" && item !== null)
+      counter += totalIntegers(item);
     if (Number.isInteger(item)) counter++;
   }
 
