@@ -1,6 +1,4 @@
 const contains = function (object, value) {
-  let result = false;
-
   for (const item of Object.values(object)) {
     if (typeof item === "object" && item !== null) {
       if (contains(item, value)) return true; //result = true;
