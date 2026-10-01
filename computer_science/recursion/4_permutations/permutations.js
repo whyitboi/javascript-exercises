@@ -1,15 +1,19 @@
 const permutations = function (someArray) {
   if (someArray.length <= 1) return [someArray];
 
-  someArray.flatMap((item) => {
+  //return final array of permutation arrays
+  return someArray.flatMap((item) => {
     const rest = someArray.filter((other) => {
-      return item !== other; //console.log(other);
+      //return the values that are not the item
+      return item !== other;
     });
+    //recursive pattern
     const perm = permutations(rest);
+
+    //return the array of item and its permutations
     return perm.map((p) => [item, ...p]);
   });
 };
-console.log(permutations([1, 2, 3]));
 
 // Do not edit below this line
 module.exports = permutations;
