@@ -5,7 +5,8 @@ const permutations = function (someArray) {
     const rest = someArray.filter((other) => {
       return item !== other; //console.log(other);
     });
-    permutations(rest);
+    const perm = permutations(rest);
+    return perm.map((p) => [item, ...p]);
   });
 };
 console.log(permutations([1, 2, 3]));
