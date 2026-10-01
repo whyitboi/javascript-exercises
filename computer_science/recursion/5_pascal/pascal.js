@@ -8,7 +8,5 @@ const pascal = function (n) {
     return value + arrayTwo[index];
   });
 };
-console.log(pascal(3));
-
 // Do not edit below this line
 module.exports = pascal;
