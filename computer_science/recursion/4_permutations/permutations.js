@@ -1,7 +1,7 @@
 const permutations = function (someArray) {
   if (someArray.length <= 1) return [someArray];
 
-  //return final array of permutation arrays
+  //return final array of permutation arrays use flatMap to flatten nested arrays
   return someArray.flatMap((item) => {
     const rest = someArray.filter((other) => {
       //return the values that are not the item
