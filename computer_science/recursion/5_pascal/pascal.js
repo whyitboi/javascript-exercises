@@ -1,18 +1,9 @@
 const pascal = function (n) {
-  let result = [1];
-  if (n <= 1) return result;
-  let arrayOne = result;
-  let arrayTwo = result;
-  arrayOne.unshift(0);
-  arrayTwo.push(0);
+  const prev = pascal(n - 1);
+  if (n <= 1) return [1];
+  let arrayOne = [0, ...prev];
+  let arrayTwo = [...prev, 0];
 
-  //   for (let i = 0; i < n; i++) {
-
-  //     result.shift(0)
-  //     result.push(i);
-  //     result.push(i + result[i] + 1);
-  //   }
-  //   result[result.length - 1] = 0;
   console.log(arrayOne);
   console.log(arrayTwo);
 
